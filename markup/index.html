@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick and Morty</title>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="page">
+  <div>
+    <header class="page-header">
+      <div class="container">
+        <nav class="page-header__nav">
+          <a class="page-header__link" href="#">
+            <picture>
+              <source media="(min-width:768px)" srcset="img/logo.svg">
+              <img class="page-header__logo" src="img/logo-mob.svg" alt="Rick and Morty Logo" width="118" heigh="78">
+            </picture>
+          </a>
+          <ul class="main-menu">
+            <li class="main-menu__item">
+              <a class="main-menu__link main-menu__link--current" href="#">
+                Character
+              </a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">
+                Location
+              </a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">
+                Episode
+              </a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">
+                About
+              </a>
+            </li>
+          </ul>
+          <button class="page-header__btn" type="button" aria-label="Open Main Menu"></button>
+        </nav>
+      </div>
+    </header>
+    <main class="page-contents">
+      <h1 class="visually-hidden">Rick and Morty</h1>
+      <section class="random">
+        <img class="random__img" src="img/rand-img.jpg" alt="Rick Sanchez" width="359">
+        <h2 class="random__title">Rick Sanchez</h2>
+      </section>
+      <section class="selector">
+        <h2 class="visually-hidden">Item selector</h2>
+        <div class="container selector__container">
+          <button type="button" class="selector__opener">Open Character List</button>
+          <div class="selector__wrapper">
+            <ul class="selector__list">
+              <li class="selector__item">
+                <button class="selector__btn" type="button">Rick Sanchez</button>
+              </li>
+              <li class="selector__item selector__item--current">
+                <button class="selector__btn" type="button">Morty
+                  Smith</button>
+              </li>
+              <li class="selector__item">
+                <button class="selector__btn" type="button">Summer Smith</button>
+              </li>
+              <li class="selector__item">
+                <button class="selector__btn" type="button">Beth Smith</button>
+              </li>
+              <li class="selector__item">
+                <button class="selector__btn" type="button">Jerry Smith</button>
+              </li>
+              <li class="selector__item">
+                <button class="selector__btn" type="button">Abadango Cluster Princess</button>
+              </li>
+              <li class="selector__item">
+                <button class="selector__btn" type="button">Abradolf Lincler</button>
+              </li>
+            </ul>
+            <ul class="pagination">
+              <li class="pagination__item pagination__item--blocked"><button class="pagination__btn"
+                  type="button">Previous</button></li>
+              <li class="pagination__item"><button class="pagination__btn" type="button">Next</button></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="details">
+        <h2 class="visually-hidden">Item Details</h2>
+        <div class="container details__container">
+          <p class="details__alive-status details__alive-status--alive">alive</p>
+          <img class="details__img" src="img/detail-img.jpg" alt="Morty" width="141" height='141'>
+          <p class="details__name">Morty Smith</p>
+          <ul class="details__list">
+            <li class="details__item">
+              <p class="details__label">species</p>
+              <p class="details__delimiter"></p>
+              <p class="details__value">Human</p>
+            </li>
+            <li class="details__item">
+              <p class="details__label">gender</p>
+              <p class="details__delimiter"></p>
+              <p class="details__value">Male</p>
+            </li>
+            <li class="details__item">
+              <p class="details__label">location</p>
+              <p class="details__delimiter"></p>
+              <p class="details__value">Earth (Replacement Dimension)</p>
+            </li>
+            <li class="details__item">
+              <p class="details__label">created</p>
+              <p class="details__delimiter"></p>
+              <p class="details__value">04 November 2017 </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="foreground"></div>
+  <script>
+    const mainMenu = document.querySelector('.main-menu');
+    const openMenuBtn = document.querySelector('.page-header__btn');
+
+    const selectorOpener = document.querySelector('.selector__opener');
+    const selector = document.querySelector('.selector__wrapper');
+
+    selectorOpener.addEventListener('click', (evt) => {
+      selector.classList.toggle('selector__wrapper__opened');
+      evt.target.innerText = selector.classList.contains('selector__wrapper__opened') ? 'Close Character Selector' : 'Open Character Selector';
+    })
+
+    openMenuBtn.addEventListener('click', (evt) => {
+      mainMenu.classList.toggle('main-menu__opened');
+      evt.target.classList.toggle('page-header__btn--opened')
+    });
+  </script>
+</body>
+
+</html>
