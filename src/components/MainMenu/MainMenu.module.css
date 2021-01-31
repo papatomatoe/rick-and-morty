@@ -1,0 +1,19 @@
+.mainMenu {
+  display: none;
+  margin: 20px 0 0;
+  padding: 10px;
+
+  list-style: none;
+}
+
+.mainMenu__opened {
+  display: block;
+}
+
+@media (min-width: 1000px) {
+  .mainMenu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+}

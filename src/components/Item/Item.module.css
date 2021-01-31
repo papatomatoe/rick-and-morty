@@ -1,0 +1,29 @@
+.selector__item {
+  margin-bottom: 10px;
+}
+
+.selector__btn {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 10px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  font-family: "Roboto Mono", "Courier", monospace;
+  text-align: center;
+
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.selector__item--current .selector__btn {
+  color: #ffffff;
+
+  background-color: #000000;
+  border: 2px solid #ffffff;
+}

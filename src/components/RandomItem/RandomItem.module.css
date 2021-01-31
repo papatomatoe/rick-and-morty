@@ -1,0 +1,47 @@
+.random {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .random {
+    position: relative;
+    width: 100%;
+    display: grid;
+    box-sizing: border-box;
+    padding: 10px;
+
+    background-color: #ffffff;
+    border-radius: 10px;
+
+    gap: 0 30px;
+    grid-column: 1 / -1;
+    grid-template-columns: 380px 1fr;
+  }
+
+  .random::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 400px;
+  
+    display: block;
+    width: 10px;
+    height: 170px;
+  
+    background-color: #000000;
+    border-radius: 10px;
+    transform: translateY(-50%);
+  }
+  
+  .random__img {
+    border-radius: 10px;
+  
+    justify-self: center;
+  }
+  
+  .random__title {
+    align-self: center;
+  
+    justify-self: center;
+  }
+}

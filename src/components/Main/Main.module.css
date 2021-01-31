@@ -1,0 +1,23 @@
+.pageContents {
+  margin-bottom: 70px;
+}
+
+
+@media (min-width: 768px) {
+  .pageContents {
+    display: grid;
+    width: 75%;
+    margin: 0 auto;
+  
+    gap: 20px;
+    grid-template-columns: 265px 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .pageContents {
+    width: 815px;
+
+    grid-template-columns: 320px 1fr;
+  }
+}

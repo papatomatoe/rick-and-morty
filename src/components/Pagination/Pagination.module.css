@@ -1,0 +1,36 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  margin-top: 25px;
+  padding: 0;
+
+  list-style: none;
+}
+
+.pagination__item {
+  width: 47%;
+}
+
+.pagination__btn {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 10px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  font-family: "Roboto Mono", "Courier", monospace;
+  text-align: center;
+
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pagination__item--blocked .pagination__btn {
+  color: #a3a3a3;
+}
