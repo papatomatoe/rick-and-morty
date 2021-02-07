@@ -1,0 +1,26 @@
+.details__item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+.details__item p {
+  margin: 10px 0;
+}
+.details__item .details__delimiter {
+  flex-grow: 1;
+  margin-right: 6px;
+  margin-left: 6px;
+
+  border-bottom: 3px dotted #777777;
+}
+
+.details__label {
+  font-size: 14px;
+  color: #353535;
+}
+
+.details__value {
+  text-align: right;
+}
