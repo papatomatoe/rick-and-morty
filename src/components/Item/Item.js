@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 import styles from './Item.module.css';
 
-const Item = ({ title }) => {
+const Item = ({ name }) => {
   return (
     <li className={styles.selector__item}>
-      <button className={styles.selector__btn} type="button">{title}</button>
+      <button className={styles.selector__btn} type="button">{name}</button>
     </li>
   );
 };
 
 Item.propTypes = {
-  title: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired
 };
 
 export default Item;
