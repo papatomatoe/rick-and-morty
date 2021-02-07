@@ -1,23 +1,28 @@
 .pageContents {
   margin-bottom: 70px;
+  padding-bottom: 60px;
 }
 
 
 @media (min-width: 768px) {
   .pageContents {
     display: grid;
-    width: 75%;
+    width: 85%;
     margin: 0 auto;
   
     gap: 20px;
-    grid-template-columns: 265px 1fr;
+    grid-template-columns: 350px 1fr;
+
+    padding-bottom: 80px;
   }
 }
 
 @media (min-width: 1000px) {
   .pageContents {
-    width: 815px;
+    width: 950px;
 
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 500px 1fr;
+
+    padding-bottom: 110px;
   }
 }

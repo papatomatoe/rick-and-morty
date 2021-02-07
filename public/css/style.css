@@ -88,12 +88,12 @@ img {
   }
 
   .container {
-    width: 75%;
+    width: 85%;
   }
 }
 
 @media (min-width: 1000px) {
   .container {
-    width: 815px;
+    width: 950px;
   }
 }
