@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Item from '../Item';
 import Pagination from '../Pagination';
@@ -14,15 +15,16 @@ class ItemSelector extends React.Component {
   state = {
     items: [],
     pageNumber: 1,
+    info: {}
   }
 
   componentDidMount() {
-    this.API.getCharacterList(this.state.pageNumber).then(data => this.setState({ items: data.results }));
+    this.API.getCharacterList(this.state.pageNumber).then(data => this.setState({ items: data.results, info: data.info }));
   }
 
   componentDidUpdate(_, prevState) {
     if (prevState.pageNumber !== this.state.pageNumber) {
-      this.API.getCharacterList(this.state.pageNumber).then(data => this.setState({ items: data.results }));
+      this.API.getCharacterList(this.state.pageNumber).then(data => this.setState({ items: data.results, info: data.info }));
     }
   }
 
@@ -35,7 +37,8 @@ class ItemSelector extends React.Component {
   }
 
   render() {
-    const { items } = this.state;
+    const { getId } = this.props;
+    const { items, info } = this.state;
 
     return (
       <section className={styles.selector} >
@@ -45,15 +48,19 @@ class ItemSelector extends React.Component {
           <div className={styles.selector__wrapper}>
             <ul className={styles.selector__list}>
               {
-                items.length ? items.map(({ id, name }) => <Item key={id} name={name} />) : ''
+                items.length ? items.map(({ id, name }) => <Item key={id} id={id} name={name} getId={getId} />) : ''
               }
             </ul>
-            <Pagination getButtonDirection={this.getPageNumberHandler} />
+            <Pagination info={info} getButtonDirection={this.getPageNumberHandler} />
           </div>
         </div>
       </section>
     );
   }
 };
+
+ItemSelector.propTypes = {
+  getId: PropTypes.func.isRequired
+}
 
 export default ItemSelector;

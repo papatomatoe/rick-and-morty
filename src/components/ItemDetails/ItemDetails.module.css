@@ -21,6 +21,10 @@
   border: 2px solid;
   border-radius: 7px;
   transform: rotateZ(-27deg);
+
+  color: #696969;
+
+  border-color: #696969;
 }
 
 .details__aliveStatus__alive {

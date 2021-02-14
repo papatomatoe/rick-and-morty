@@ -18,6 +18,22 @@ class Service {
       console.error(error);
     }
   }
+
+  getCharacter = async (id) => {
+    try {
+      return await this.getData(`/character/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  getLocation = async (id) => {
+    try {
+      return await this.getData(`/location/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
 export default Service;

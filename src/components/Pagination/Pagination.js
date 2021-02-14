@@ -3,25 +3,36 @@ import PropTypes from 'prop-types';
 
 import styles from './Pagination.module.css';
 
-const Pagination = ({ getButtonDirection }) => {
+const Pagination = ({ info = {}, getButtonDirection }) => {
+  const {
+    prev = '',
+    next = ''
+  } = info;
+
   return (
     <ul className={styles.pagination}>
-      <li className={styles.pagination__item}>
+      <li className={`${styles.pagination__item} ${prev === null ? styles.pagination__itemBlocked : ''}`}>
         <button
           className={styles.pagination__btn}
           type="button"
-          onClick={() => {
-            getButtonDirection('prev')
-          }}>Previous</button>
+          onClick={() => getButtonDirection('prev')}
+          disabled={!prev}
+        >Previous</button>
       </li>
-      <li className={styles.pagination__item}>
-        <button className={styles.pagination__btn} type="button" onClick={() => getButtonDirection('next')}>Next</button>
+      <li className={`${styles.pagination__item} ${next === null ? styles.pagination__itemBlocked : ''}`}>
+        <button
+          className={styles.pagination__btn}
+          type="button"
+          onClick={() => getButtonDirection('next')}
+          disabled={!next}
+        >Next</button>
       </li>
     </ul>
   );
 };
 
 Pagination.propTypes = {
+  info: PropTypes.object.isRequired,
   getButtonDirection: PropTypes.func.isRequired
 }
 
