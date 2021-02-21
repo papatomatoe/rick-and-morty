@@ -1,3 +1,7 @@
 import withDataDetails from './withDataDetails';
+import withDataSelector from './withDataSelector';
 
-export { withDataDetails };
+export {
+  withDataDetails,
+  withDataSelector
+};

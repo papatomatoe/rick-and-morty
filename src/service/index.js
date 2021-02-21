@@ -27,9 +27,33 @@ class Service {
     }
   }
 
+  getLocationList = async (pageNumber) => {
+    try {
+      return await this.getData(`/location?page=${pageNumber}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   getLocation = async (id) => {
     try {
       return await this.getData(`/location/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  getEpisodeList = async (pageNumber) => {
+    try {
+      return await this.getData(`/episode?page=${pageNumber}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  getEpisode = async (id) => {
+    try {
+      return await this.getData(`/episode/${id}`);
     } catch (error) {
       console.error(error);
     }

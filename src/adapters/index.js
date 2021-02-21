@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 const characterAdapter = (data) => ({
+  id: data.id,
   name: data.name,
   status: data.status,
   image: data.image,
@@ -10,8 +11,24 @@ const characterAdapter = (data) => ({
   created: moment(new Date(data.created)).format('Do MMMM YYYY')
 });
 
-const locationAdapter = (data) => {
-  return data;
-}
+const locationAdapter = (data) => ({
+  id: data.id,
+  name: data.name,
+  type: data.type,
+  dimension: data.dimension,
+  created: moment(new Date(data.created)).format('Do MMMM YYYY')
+});
 
-export { characterAdapter, locationAdapter };
+const episodeAdapter = (data) => ({
+  id: data.id,
+  name: data.name,
+  airDate: data.air_date,
+  episodeCode: data.episode,
+  characters: data.characters
+})
+
+export {
+  characterAdapter,
+  locationAdapter,
+  episodeAdapter
+};

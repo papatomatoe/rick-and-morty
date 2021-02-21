@@ -7,7 +7,7 @@ import Record from '../Record';
 
 import { withDataDetails } from '../hocs';
 
-const { getCharacter, getLocation } = new Service();
+const { getCharacter, getLocation, getEpisode } = new Service();
 
 const CharacterDetails = ({ item }) => {
   return (
@@ -29,10 +29,20 @@ const LocationDetails = ({ item }) => {
     <ItemDetails
       name={item.name}
     >
-      {/* <Record label={'species'} item={item} />
-      <Record label={'gender'} item={item} />
-      <Record label={'location'} item={item} />
-      <Record label={'created'} item={item} /> */}
+      <Record label={'type'} item={item} />
+      <Record label={'dimension'} item={item} />
+      <Record label={'created'} item={item} />
+    </ItemDetails>
+  );
+};
+
+const EpisodeDetails = ({ item }) => {
+  return (
+    <ItemDetails
+      name={item.name}
+    >
+      <Record label={'episodeCode'} item={item} />
+      <Record label={'airDate'} item={item} />
     </ItemDetails>
   );
 };
@@ -41,5 +51,7 @@ const Character = withDataDetails(CharacterDetails, getCharacter, 'character');
 
 const Location = withDataDetails(LocationDetails, getLocation, 'location');
 
-export { Character, Location };
+const Episode = withDataDetails(EpisodeDetails, getEpisode, 'episode')
+
+export { Character, Location, Episode };
 

@@ -1,33 +1,49 @@
 import React from 'react';
 
 import RandomItem from '../RandomItem';
-import ItemSelector from '../ItemSelector';
 
 import styles from './Main.module.css';
 
 import Service from '../../service';
 
-import { Character, Location } from '../rick-and-morty-components';
+import {
+  Character,
+  Location,
+  Episode,
+  CharacterSelector,
+  LocationSelector,
+  EpisodeSelector
+} from '../rick-and-morty-components';
 
 class Main extends React.Component {
   API = new Service();
 
   state = {
     characterId: 1,
+    locationId: 1,
+    episodeId: 1
   }
 
-  getCharacter = (id) => this.setState({ characterId: id });
+  getCharacterId = (id) => this.setState({ characterId: id });
+  getLocationId = (id) => this.setState({ locationId: id });
+  getEpisodeId = (id) => this.setState({ episodeId: id });
 
   render() {
-    const { characterId } = this.state;
+    const { characterId, locationId, episodeId } = this.state;
 
     return (
       <main className={styles.pageContents}>
         <h1 className="visually-hidden">Rick and Morty</h1>
         <RandomItem />
-        <ItemSelector getId={this.getCharacter} />
+
+        <CharacterSelector getId={this.getCharacterId} />
         <Character id={characterId} />
-        <Location id={4} />
+
+        <LocationSelector getId={this.getLocationId} />
+        <Location id={locationId} />
+
+        <EpisodeSelector getId={this.getEpisodeId} />
+        <Episode id={episodeId} />
       </main>
     );
   }

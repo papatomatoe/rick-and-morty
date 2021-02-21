@@ -1,3 +1,11 @@
-import { Character, Location } from "./Details";
+import { Character, Location, Episode } from "./Details";
+import { CharacterSelector, LocationSelector, EpisodeSelector } from './Selector';
 
-export { Character, Location }
+export {
+  Character,
+  Location,
+  Episode,
+  CharacterSelector,
+  LocationSelector,
+  EpisodeSelector
+};

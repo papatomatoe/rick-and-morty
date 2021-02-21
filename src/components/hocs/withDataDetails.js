@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { characterAdapter, locationAdapter } from '../../adapters';
+import { characterAdapter, locationAdapter, episodeAdapter } from '../../adapters';
 
 
 const withDataDetails = (Component, getData, dataType) => {
@@ -23,16 +23,18 @@ const withDataDetails = (Component, getData, dataType) => {
     }
 
     getAdaptedData = (data) => {
-      if (!Object.values(data).length) {
-        return data;
-      }
+      switch (dataType) {
+        case 'character':
+          return characterAdapter(data);
 
-      if (dataType === 'character') {
-        return characterAdapter(data);
-      }
+        case 'location':
+          return locationAdapter(data);
 
-      if (dataType === 'location') {
-        return locationAdapter(data);
+        case 'episode':
+          return episodeAdapter(data);
+
+        default:
+          return data;
       }
     }
 
