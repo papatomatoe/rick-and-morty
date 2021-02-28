@@ -1,0 +1,45 @@
+
+.notFound {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notFoundImg {
+  width: 100px;
+  margin-bottom: 40px;
+}
+
+.notFoundTxt {
+  width: 210px;
+  margin-bottom: 40px;
+}
+
+.notFoundLink {
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+
+@media (min-width: 768px) {
+  .notFound {
+    margin-top: 60px;
+  }
+  
+  .notFoundImg {
+    width: 240px;
+    margin-bottom: 40px;
+  }
+
+  .notFoundTxt {
+    width: 377px;
+    margin-bottom: 40px;
+  }
+  
+  .notFoundLink {
+    margin-top: 40px;
+  }
+  
+}
