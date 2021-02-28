@@ -5,7 +5,7 @@ import Service from '../../service';
 import ItemDetails from '../ItemDetails';
 import Record from '../Record';
 
-import { withDataDetails } from '../hocs';
+import { withDataDetails, withErrorBoundary } from '../hocs';
 
 const { getCharacter, getLocation, getEpisode } = new Service();
 
@@ -47,11 +47,9 @@ const EpisodeDetails = ({ item }) => {
   );
 };
 
-const Character = withDataDetails(CharacterDetails, getCharacter, 'character');
-
-const Location = withDataDetails(LocationDetails, getLocation, 'location');
-
-const Episode = withDataDetails(EpisodeDetails, getEpisode, 'episode')
+const Character = withErrorBoundary(withDataDetails(CharacterDetails, getCharacter, 'character'));
+const Location = withErrorBoundary(withDataDetails(LocationDetails, getLocation, 'location'));
+const Episode = withErrorBoundary(withDataDetails(EpisodeDetails, getEpisode, 'episode'));
 
 export { Character, Location, Episode };
 

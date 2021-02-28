@@ -1,7 +1,9 @@
 import React from 'react';
 
 import Service from '../../service';
-import { characterAdapter } from '../../adapters'
+import { withErrorBoundary } from '../hocs';
+import { characterAdapter } from '../../adapters';
+import Spinner from '../Spinner';
 import styles from './RandomItem.module.css';
 
 class RandomItem extends React.Component {
@@ -33,7 +35,7 @@ class RandomItem extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.state.timerId)
+    clearInterval(this.state.timerId);
   }
 
   render() {
@@ -42,7 +44,7 @@ class RandomItem extends React.Component {
     return (
       <section className={styles.random} >
         {
-          isLoading ? <p style={{ color: 'white' }}>Loading...</p> : (
+          isLoading ? <Spinner /> : (
             <React.Fragment>
               <div className={styles.random__imgContainer}>
                 <img className={styles.random__img} src={item.image} alt={item.name} width="359" />
@@ -56,4 +58,4 @@ class RandomItem extends React.Component {
   }
 }
 
-export default RandomItem;
+export default withErrorBoundary(RandomItem);

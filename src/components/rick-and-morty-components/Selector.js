@@ -2,13 +2,13 @@ import ItemSelector from '../ItemSelector';
 
 import Service from '../../service';
 
-import { withDataSelector } from '../hocs';
+import { withDataSelector, withErrorBoundary } from '../hocs';
 
 const { getCharacterList, getLocationList, getEpisodeList } = new Service();
 
-const CharacterSelector = withDataSelector(ItemSelector, getCharacterList);
-const LocationSelector = withDataSelector(ItemSelector, getLocationList);
-const EpisodeSelector = withDataSelector(ItemSelector, getEpisodeList);
+const CharacterSelector = withErrorBoundary(withDataSelector(ItemSelector, getCharacterList));
+const LocationSelector = withErrorBoundary(withDataSelector(ItemSelector, getLocationList));
+const EpisodeSelector = withErrorBoundary(withDataSelector(ItemSelector, getEpisodeList));
 
 export {
   CharacterSelector,

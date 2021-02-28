@@ -6,10 +6,10 @@ import styles from './MainMenu.module.css';
 
 
 const linkStack = [
-  { title: 'Character', href: '/character/' },
-  { title: 'Location', href: '/location/' },
-  { title: 'Episode', href: '/episode/' },
-  { title: 'About', href: '/about/' },
+  { title: 'Character', href: '/character' },
+  { title: 'Location', href: '/location' },
+  { title: 'Episode', href: '/episode' },
+  { title: 'About', href: '/about' },
 ]
 
 const MainMenu = () => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import RandomItem from '../RandomItem';
 
@@ -30,20 +31,33 @@ class Main extends React.Component {
 
   render() {
     const { characterId, locationId, episodeId } = this.state;
-
     return (
       <main className={styles.pageContents}>
         <h1 className="visually-hidden">Rick and Morty</h1>
         <RandomItem />
 
-        <CharacterSelector getId={this.getCharacterId} />
-        <Character id={characterId} />
+        <Route path="/" exact>
+          <h2 style={{ color: 'red' }}>Main Page</h2>
+        </Route>
 
-        <LocationSelector getId={this.getLocationId} />
-        <Location id={locationId} />
+        <Route path='/character'>
+          <CharacterSelector getId={this.getCharacterId} />
+          <Character id={characterId} />
+        </Route>
 
-        <EpisodeSelector getId={this.getEpisodeId} />
-        <Episode id={episodeId} />
+        <Route path='/location'>
+          <LocationSelector getId={this.getLocationId} />
+          <Location id={locationId} />
+        </Route>
+
+        <Route path='/episode'>
+          <EpisodeSelector getId={this.getEpisodeId} />
+          <Episode id={episodeId} />
+        </Route>
+
+        <Route path="/about">
+          <h2 style={{ color: 'red' }}>About Page</h2>
+        </Route>
       </main>
     );
   }

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { characterAdapter, locationAdapter, episodeAdapter } from '../../adapters';
 
+import Spinner from '../Spinner';
+
 
 const withDataDetails = (Component, getData, dataType) => {
   return class extends React.Component {
@@ -12,13 +14,14 @@ const withDataDetails = (Component, getData, dataType) => {
     }
 
     componentDidMount() {
-      getData(this.props.id).then(data => setTimeout(() => this.setState({ item: data, isLoading: false }), 500))
+      getData(this.props.id).then(data => this.setState({ item: data, isLoading: false }))
     }
 
     componentDidUpdate(prevProps) {
       if (prevProps.id !== this.props.id) {
         this.setState({ isLoading: true })
-        getData(this.props.id).then(data => setTimeout(() => this.setState({ item: data, isLoading: false }), 500))
+        getData(this.props.id)
+          .then(data => this.setState({ item: data, isLoading: false }))
       }
     }
 
@@ -42,7 +45,7 @@ const withDataDetails = (Component, getData, dataType) => {
       const { item, isLoading } = this.state;
 
       if (isLoading) {
-        return <p style={{ color: 'white' }}>Loading...</p>
+        return <Spinner />
       }
 
       return <Component {...this.props} item={this.getAdaptedData(item)} />

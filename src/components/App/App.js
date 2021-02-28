@@ -1,14 +1,15 @@
 import React from "react";
+import { BrowserRouter } from 'react-router-dom';
 
 import Header from "../Header/";
 import Main from "../Main";
 
 const App = () => {
   return (
-    <React.Fragment>
+    <BrowserRouter>
       <Header />
       <Main />
-    </React.Fragment>
+    </BrowserRouter>
   );
 }
 

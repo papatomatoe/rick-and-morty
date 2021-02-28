@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom'
 
 import styles from './MainMenuItem.module.css';
 
 const MainMenuItem = ({ href, title }) => {
   return (
     <li className={styles.mainMenu__item}>
-      <a className={styles.mainMenu__link} href={href}>
+      <NavLink className={styles.mainMenu__link} to={href} activeStyle={{ color: 'red' }}>
         {title}
-      </a>
+      </NavLink>
     </li>
   );
 };
