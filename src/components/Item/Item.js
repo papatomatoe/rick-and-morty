@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 
 import styles from './Item.module.css';
 
-const Item = ({ id, name, getId }) => {
+const Item = ({ id, name, getId, isActive }) => {
+  const activeStyle = isActive ? styles.selector__itemCurrent : '';
   return (
-    <li className={styles.selector__item}>
+    <li className={`${styles.selector__item} ${activeStyle}`}>
       <button
         className={styles.selector__btn}
         type="button"
@@ -21,7 +22,8 @@ Item.propTypes = {
     PropTypes.number
   ]).isRequired,
   name: PropTypes.string.isRequired,
-  getId: PropTypes.func.isRequired
+  getId: PropTypes.func.isRequired,
+  isActive: PropTypes.bool.isRequired
 };
 
 export default Item;

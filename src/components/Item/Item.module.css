@@ -25,7 +25,7 @@
   text-overflow: ellipsis;
 }
 
-.selector__item--current .selector__btn {
+.selector__itemCurrent .selector__btn {
   color: #ffffff;
 
   background-color: #000000;

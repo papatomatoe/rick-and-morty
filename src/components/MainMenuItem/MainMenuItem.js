@@ -4,10 +4,14 @@ import { NavLink } from 'react-router-dom'
 
 import styles from './MainMenuItem.module.css';
 
+const activeStyle = {
+  textDecoration: 'underline'
+};
+
 const MainMenuItem = ({ href, title }) => {
   return (
     <li className={styles.mainMenu__item}>
-      <NavLink className={styles.mainMenu__link} to={href} activeStyle={{ color: 'red' }}>
+      <NavLink className={styles.mainMenu__link} to={href} activeStyle={activeStyle}>
         {title}
       </NavLink>
     </li>

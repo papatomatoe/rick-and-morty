@@ -18,7 +18,7 @@ class RandomItem extends React.Component {
     timerId: ''
   }
 
-  getRadomId = () => Math.floor(Math.random() * this.state.totalItems);
+  getRadomId = () => Math.floor(Math.random() * this.state.totalItems) + 1;
 
   componentDidMount() {
     this.API.getCharacterList(this.DEFAULT_PAGE_NUMBER)

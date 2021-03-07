@@ -8,11 +8,11 @@
   color: #000000;
 }
 
-.mainMenu__link--current {
+.active {
   position: relative;
 }
 
-.mainMenu__link--current::after {
+.active::after {
   content: "";
   position: absolute;
   bottom: -4px;

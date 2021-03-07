@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 import RandomItem from '../RandomItem';
+import Error404 from '../Error404';
 
 import styles from './Main.module.css';
 
@@ -36,28 +37,34 @@ class Main extends React.Component {
         <h1 className="visually-hidden">Rick and Morty</h1>
         <RandomItem />
 
-        <Route path="/" exact>
-          <h2 style={{ color: 'red' }}>Main Page</h2>
-        </Route>
+        <Switch>
+          <Route path='/' exact>
+            <Redirect to='/character' />
+          </Route>
 
-        <Route path='/character'>
-          <CharacterSelector getId={this.getCharacterId} />
-          <Character id={characterId} />
-        </Route>
+          <Route path='/character' exact>
+            <CharacterSelector getId={this.getCharacterId} activeId={characterId} />
+            <Character id={characterId} />
+          </Route>
 
-        <Route path='/location'>
-          <LocationSelector getId={this.getLocationId} />
-          <Location id={locationId} />
-        </Route>
+          <Route path='/location' exact>
+            <LocationSelector getId={this.getLocationId} activeId={locationId} />
+            <Location id={locationId} />
+          </Route>
+2
+          <Route path='/episode' exact>
+            <EpisodeSelector getId={this.getEpisodeId} activeId={episodeId} />
+            <Episode id={episodeId} />
+          </Route>
 
-        <Route path='/episode'>
-          <EpisodeSelector getId={this.getEpisodeId} />
-          <Episode id={episodeId} />
-        </Route>
+          <Route path='/about' exact>
+            <h2 style={{ color: 'red' }}>About Page</h2>
+          </Route>
 
-        <Route path="/about">
-          <h2 style={{ color: 'red' }}>About Page</h2>
-        </Route>
+          <Route>
+            <Error404 />
+          </Route>
+        </Switch>
       </main>
     );
   }
